@@ -28,7 +28,6 @@ public:
 	}
 	vector(const vector& vec)
 	{
-		delete[]arr;
 		Size = vec.Size;
 		Capacity = vec.Capacity;
 		arr = new T[Capacity];
@@ -60,7 +59,7 @@ public:
 			return arr[i];
 		}
 	}
-	void push_back(int a)
+	void push_back(T a)
 	{
 		if (Size < Capacity)
 		{
@@ -86,7 +85,7 @@ public:
 		int help = Size;
 		for (int i = Size; i != help+count; ++i)
 		{
-			int w;
+			T w;
 			std::cin >> w;
 			push_back(w);
 		}
@@ -132,17 +131,17 @@ int main()
 {
 	int size;
 	std::cin >> size;
-	vector<int> vec(size);
+	vector<char> vec(size);
 	std::cout << vec.size() << " " << vec.capacity() << std::endl;
 	vec.input(size);
 	std::cout << vec.size() << " " << vec.capacity() << std::endl;
 	vec.print();
 	std::cout << vec.at(3) << std::endl;
-	vec.push_back(5);
-	vec.push_back(6);
+	vec.push_back('f');
+	vec.push_back('g');
 	vec.print();
 	std::cout << vec.size() << " " << vec.capacity() << std::endl;
-	vector<int> v = vec;
+	vector<char> v = vec;
 	v.print();
 	std::cout << v.size() << " " << v.capacity() << std::endl;
 	v.input(3);
